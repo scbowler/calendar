@@ -10,10 +10,12 @@ class Calendar extends Component {
         super(props);
 
         this.state = {
-            start: new Date('2018/5/1'),
             weeks: []
         }
 
+        const now = new Date()
+
+        this.start = new Date(`${now.getMonth() + 1}/1/${now.getFullYear()}`);
         this.oneDay = 24 * 60 * 60 * 1000;
         this.monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         this.weekCount = 5;
@@ -24,7 +26,7 @@ class Calendar extends Component {
     }
     
     buildWeekArray(){
-        const { start } = this.state;
+        const { start } = this;
         const today = start.getDay();
 
         const startDates = [];
@@ -41,33 +43,32 @@ class Calendar extends Component {
     }
 
     previousMonth(){
-        const { start } = this.state;
+        const { start } = this;
         const prevMonth = start.getMonth() - 1;
         start.setMonth(prevMonth);
-        const newDate = new Date(start.getTime());
-
-        this.setState({
-            start: new Date(newDate)
-        }, this.buildWeekArray);
+        
+        this.start = new Date(start.getTime());
+        
+        this.buildWeekArray()
     }
 
     nextMonth(){
-        const { start } = this.state;
+        const { start } = this;
         const prevMonth = start.getMonth() + 1;
         start.setMonth(prevMonth);
-        const newDate = new Date(start.getTime());
 
-        this.setState({
-            start: new Date(newDate)
-        }, this.buildWeekArray);
+        this.start = new Date(start.getTime());
+
+        this.buildWeekArray()
     }
 
     render() {
 
-        const { weeks, start } = this.state;
+        const { weeks } = this.state;
+        const { start } = this;
 
         const weekElements = weeks.map((start, index) => {
-            return <Week key={index} start={start} month={this.state.start.getMonth()} oneDay={this.oneDay}/>
+            return <Week key={index} start={start} month={this.start.getMonth()} oneDay={this.oneDay}/>
         });
 
         const dayNameElements = daysOfWeekNames.map((name, index) => {
@@ -76,9 +77,11 @@ class Calendar extends Component {
 
         return (
             <div className="calendar-container">
-                <button onClick={this.previousMonth.bind(this)}>Previous Month</button>
-                <button onClick={this.nextMonth.bind(this)}>Next Month</button>
-                <h1>{this.monthNames[start.getMonth()]} {start.getFullYear()}</h1>
+                <h1>
+                    <i onClick={this.previousMonth.bind(this)} className="material-icons">keyboard_arrow_left</i>
+                    {this.monthNames[start.getMonth()]} {start.getFullYear()}
+                    <i onClick={this.nextMonth.bind(this)} className="material-icons">keyboard_arrow_right</i>
+                </h1>
                 <div className="calendar-body">
                     <div className="day-names">
                         {dayNameElements}

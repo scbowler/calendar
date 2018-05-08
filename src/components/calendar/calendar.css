@@ -9,13 +9,13 @@
 
 .calendar-body .week {
     height: 150px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 0;
 }
 
 .calendar-body .day-names .day,
 .calendar-body .week .day {
-    width: 14.28%;
+    width: 14.285%;
     box-sizing: border-box;
     display: inline-block;
     font-size: 1rem;
@@ -29,9 +29,25 @@
 .calendar-body .week .day {
     padding: 6px;
     height: 100%;
+    border: 1px solid black;
 }
 
 .calendar-body .day.grey {
     color: #b8b8b8;
     background-color: #fafafa;
+}
+
+.calendar-container h1 i {
+    margin: 0 25px;
+    color: #b8b8b8;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 1.3em;
+    vertical-align: sub;
+}
+
+.calendar-container h1 i:hover {
+    color: #000;
+    background-color: #fafafa
 }
