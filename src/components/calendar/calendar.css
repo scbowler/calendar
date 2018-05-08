@@ -28,4 +28,10 @@
 
 .calendar-body .week .day {
     padding: 6px;
+    height: 100%;
+}
+
+.calendar-body .day.grey {
+    color: #b8b8b8;
+    background-color: #fafafa;
 }
