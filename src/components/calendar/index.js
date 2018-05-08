@@ -17,7 +17,7 @@ class Calendar extends Component {
         });
 
         const dayNameElements = daysOfWeekNames.map((name, index) => {
-            return <Day day={name}/>
+            return <Day key={index} day={name}/>
         });
 
         return (

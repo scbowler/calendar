@@ -6,9 +6,9 @@ export default props => {
     const dayElements = [];
 
     for(let d = 0; d < daysInWeek; d++){
-        dayElements.push(<Day day={props.start + d}/>);
+        dayElements.push(<Day key={d} day={props.start + d}/>);
     }
-    
+
     return (
         <div className="week">
             { dayElements }
