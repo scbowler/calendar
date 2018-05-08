@@ -1,0 +1,31 @@
+.calendar-container {
+    width: 80vw;
+    margin: auto;
+}
+
+.calendar-container h1 {
+    text-align: center;
+}
+
+.calendar-body .week {
+    height: 150px;
+    border: 1px solid black;
+    font-size: 0;
+}
+
+.calendar-body .day-names .day,
+.calendar-body .week .day {
+    width: 14.28%;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.calendar-body .day-names .day {
+    text-align: center;
+    font-weight: bold;
+}
+
+.calendar-body .week .day {
+    padding: 6px;
+}
