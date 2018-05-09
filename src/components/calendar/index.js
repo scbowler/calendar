@@ -10,7 +10,25 @@ class Calendar extends Component {
         super(props);
 
         this.state = {
-            weeks: []
+            weeks: [],
+            events: {
+                '5/8/2018': [
+                    { 
+                        time: '1:00 pm',
+                        title: 'Go To Work Meeting'
+                    },
+                    {
+                        time: '3:30 pm',
+                        title: 'Lunch Meeting'
+                    }
+                ],
+                '5/12/2018': [
+                    {
+                        time: '12:00 pm',
+                        title: 'Take do for walk'
+                    }
+                ]
+            }
         }
 
         const now = new Date()
@@ -64,11 +82,11 @@ class Calendar extends Component {
 
     render() {
 
-        const { weeks } = this.state;
+        const { weeks, events } = this.state;
         const { start } = this;
 
         const weekElements = weeks.map((start, index) => {
-            return <Week key={index} start={start} month={this.start.getMonth()} oneDay={this.oneDay}/>
+            return <Week key={index} start={start} month={this.start.getMonth()} oneDay={this.oneDay} events={events}/>
         });
 
         const dayNameElements = daysOfWeekNames.map((name, index) => {
