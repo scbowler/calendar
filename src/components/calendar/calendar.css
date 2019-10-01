@@ -2,14 +2,27 @@
     width: 80vw;
     margin: auto;
 }
+.calendar-container .yearmonth {
+    margin: 0 auto;
+    position:center; 
+    text-align: center;
+}
 
 .calendar-container h1 {
     text-align: center;
+    display:inline-block;
+    padding: 5px;
+    
+}
+
+.calendar-container h2 {
+    display:inline-block;
+    width: 500px;
 }
 
 .calendar-body .week {
     height: 150px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     font-size: 0;
 }
 
@@ -20,38 +33,45 @@
     display: inline-block;
     font-size: 1rem;
 }
+.calendar-body .day-names .day,
+.calendar-body .week .day :hover{
+    background-color: grey ;
+}
 
 .calendar-body .day-names .day {
     text-align: center;
     font-weight: bold;
 }
 
+
 .calendar-body .week .day {
     padding: 6px;
     height: 100%;
-    border: 1px solid black;
+    border-left: 1px solid black;
+    border-right:1px solid black;
     vertical-align: top;
 }
 
 .calendar-body .week .day .day-number {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: .5px;
+    
 }
 
 .calendar-body .week .day .event {
-    margin-bottom: 5px;
+    margin-bottom: .5px;
     background-color: #f2f2f2;
     padding: 4px;
 }
 
 .calendar-body .week .day .event .time {
-    margin-bottom: 5px;
+    margin-bottom: .5px;
     color: #b8b8b8;
 }
 
 .calendar-body .day.grey {
     color: #b8b8b8;
-    background-color: #fafafa;
+    background-color:#E5E5E5 ;
 }
 
 .calendar-container h1 i {
@@ -59,9 +79,9 @@
     color: #b8b8b8;
     border-radius: 50%;
     padding: 8px;
-    cursor: pointer;
     font-size: 1.3em;
     vertical-align: sub;
+    cursor: pointer;
 }
 
 .calendar-container h1 i:hover {

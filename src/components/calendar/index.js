@@ -59,6 +59,8 @@ class Calendar extends Component {
             weeks: startDates
         });
     }
+   
+    
 
     previousMonth(){
         const { start } = this;
@@ -86,7 +88,7 @@ class Calendar extends Component {
         const { start } = this;
 
         const weekElements = weeks.map((start, index) => {
-            return <Week key={index} start={start} month={this.start.getMonth()} oneDay={this.oneDay} events={events}/>
+            return <Week key={index} start={start} month={this.start.getMonth()} oneDay={this.oneDay} onClick={this.addEvent} events={events}/>
         });
 
         const dayNameElements = daysOfWeekNames.map((name, index) => {
@@ -95,16 +97,20 @@ class Calendar extends Component {
 
         return (
             <div className="calendar-container">
+        <div className="yearmonth">
                 <h1>
                     <i onClick={this.previousMonth.bind(this)} className="material-icons">keyboard_arrow_left</i>
+                    <h2>
                     {this.monthNames[start.getMonth()]} {start.getFullYear()}
+                    </h2>
                     <i onClick={this.nextMonth.bind(this)} className="material-icons">keyboard_arrow_right</i>
                 </h1>
+            </div>
                 <div className="calendar-body">
                     <div className="day-names">
                         {dayNameElements}
-                    </div>
-                    {weekElements}
+                        </div>
+                    {weekElements} 
                 </div>
             </div>
         )
