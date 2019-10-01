@@ -26,7 +26,7 @@ export default ({date, month, name, events}) => {
     return (
         <div className={`day ${notStartMonthClass}`}>
             <div className="day-number">{name || date.getDate()}</div>
-            {eventElements}
+           {eventElements}
         </div>
     )
 }
